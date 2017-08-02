@@ -35,7 +35,7 @@ namespace Tamagotchis.Models
       return _food;
     }
 
-    public void Feed(newFood)
+    public void Feed(int newFood)
     {
       _food += newFood;
     }
@@ -45,7 +45,7 @@ namespace Tamagotchis.Models
       return _happiness;
     }
 
-    public void Play(newHappiness)
+    public void Play(int newHappiness)
     {
       _happiness += newFood;
     }
@@ -55,7 +55,7 @@ namespace Tamagotchis.Models
       return _sleep;
     }
 
-    public void Sleep(newSleep)
+    public void Sleep(int newSleep)
     {
       _sleep += newSleep;
     }

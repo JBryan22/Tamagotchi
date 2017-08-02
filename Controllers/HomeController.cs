@@ -29,9 +29,27 @@ namespace Tamagotchis.Controllers
     }
 
     [HttpPost("/feed/{id}")]
-    public ActionResult Feed()
+    public ActionResult FeedTama(int id)
     {
-      Tamagotchi.Find()
+      Tamagotchi.Find(id).Feed(25);
+
+      return View("/", Tamagotchi.GetAllTama());
+    }
+
+    [HttpPost("/play/{id}")]
+    public ActionResult PlayTama(int id)
+    {
+      Tamagotchi.Find(id).Play(25);
+
+      return View("/", Tamagotchi.GetAllTama());
+    }
+
+    [HttpPost("/sleep/{id}")]
+    public ActionResult SleepTama(int id)
+    {
+      Tamagotchi.Find(id).Sleep(25);
+
+      return View("/", Tamagotchi.GetAllTama());
     }
   }
 }
