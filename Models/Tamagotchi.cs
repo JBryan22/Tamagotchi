@@ -4,6 +4,7 @@ namespace Tamagotchis.Models
 {
   public class Tamagotchi
   {
+    private string _name;
     private int _food;
     private int _happiness;
     private int _sleep;
@@ -19,12 +20,22 @@ namespace Tamagotchis.Models
       _id = allTama.Count;
     }
 
+    public int GetName()
+    {
+      return _name;
+    }
+
+    public void SetName(string name)
+    {
+      _name = name;
+    }
+
     public int GetFood()
     {
       return _food;
     }
 
-    public void AddFood(newFood)
+    public void Feed(newFood)
     {
       _food += newFood;
     }
@@ -34,7 +45,7 @@ namespace Tamagotchis.Models
       return _happiness;
     }
 
-    public void AddHappiness(newHappiness)
+    public void Play(newHappiness)
     {
       _happiness += newFood;
     }
@@ -44,12 +55,25 @@ namespace Tamagotchis.Models
       return _sleep;
     }
 
-    public void AddSleep(newSleep)
+    public void Sleep(newSleep)
     {
       _sleep += newSleep;
     }
 
-    public static List<Tamagotchi>
+    public static List<Tamagotchi> GetAllTama()
+    {
+      return _allTama;
+    }
+
+    public static void RemoveSpecificTama(int searchId)
+    {
+      _allTama.RemoveAt(searchId - 1)
+    }
+
+    public static Tamagotchi Find(int searchId)
+    {
+      return _allTama[searchId - 1];
+    }
 
   }
 }

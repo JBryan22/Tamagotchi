@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tamagotchi Pets!</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link href="css/styles.css" rel="stylesheet">-->
+  </head>
+  <body>
+    <p><a href="/AddTamagotchi" class="btn btn-success">Add A Tamagotchi</a></p>
+
+    <div class="container">
+
+      <div class="row">
+        if (@Model != null)
+        {
+          @foreach (kasdjflkasd tama in dsafkljld)
+          {
+            <div class="col-md-4 tama-one">
+              <h2>@tama.GetName()</h2>
+              <ul>
+                <li>@tama.GetFood()</li>
+                <li>@tama.GetHappiness()</li>
+                <li>@tama.GetSleep()</li>
+              </ul>
+            </div>
+
+            <form action="/feed/@tama.GetId()" method="post">
+              <button type="submit">Feed Your Tama</button>
+            </form>
+            <form action="/play/@tama.GetId()" method="post">
+              <button type="submit">Play With Your Tama</button>
+            </form>
+            <form action="/sleep/@tama.GetId()" method="post">
+              <button type="submit">Put Your Tama To Bed</button>
+            </form>
+          }
+        }
+
+
+        @* <div class="col-md-4 tama-two">
+
+        </div>
+        <div class="col-md-4 tama-three">
+
+        </div> *@
+      </div>
+
+    </div>
+  </body>
+</html>
