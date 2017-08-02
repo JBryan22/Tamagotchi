@@ -8,6 +8,7 @@ namespace Tamagotchis.Models
     private int _food;
     private int _happiness;
     private int _sleep;
+    private int _id;
 
     private static List<Tamagotchi> _allTama = new List<Tamagotchi> {};
 
@@ -16,11 +17,11 @@ namespace Tamagotchis.Models
       _food = food;
       _happiness = happiness;
       _sleep = sleep;
-      _allTama.add(this);
-      _id = allTama.Count;
+      _allTama.Add(this);
+      _id = _allTama.Count;
     }
 
-    public int GetName()
+    public string GetName()
     {
       return _name;
     }
@@ -47,7 +48,7 @@ namespace Tamagotchis.Models
 
     public void Play(int newHappiness)
     {
-      _happiness += newFood;
+      _happiness += newHappiness;
     }
 
     public int GetSleep()
@@ -67,12 +68,39 @@ namespace Tamagotchis.Models
 
     public static void RemoveSpecificTama(int searchId)
     {
-      _allTama.RemoveAt(searchId - 1)
+      _allTama.RemoveAt(searchId - 1);
     }
 
     public static Tamagotchi Find(int searchId)
     {
       return _allTama[searchId - 1];
+    }
+
+    public int GetId()
+    {
+      return _id;
+    }
+
+    public static void PassTime()
+    {
+      foreach(Tamagotchi tama in _allTama)
+      {
+        tama.Feed(-5);
+        tama.Play(-5);
+        tama.Sleep(-5);
+      }
+    }
+
+    public bool CheckDeath()
+    {
+      if (_food < 1 || _happiness < 1 || _sleep < 1)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
     }
 
   }

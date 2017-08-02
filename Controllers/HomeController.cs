@@ -25,31 +25,125 @@ namespace Tamagotchis.Controllers
       Tamagotchi myTama = new Tamagotchi();
       myTama.SetName(Request.Form["tama-name"]);
 
-      return View("/", Tamagotchi.GetAllTama());
+      return View("index", Tamagotchi.GetAllTama());
     }
 
     [HttpPost("/feed/{id}")]
     public ActionResult FeedTama(int id)
     {
-      Tamagotchi.Find(id).Feed(25);
+      Tamagotchi.Find(id).Feed(20);
+      Tamagotchi.PassTime();
 
-      return View("/", Tamagotchi.GetAllTama());
+      // List<int> tamaIds = new List<int> {};
+      //
+      // foreach (Tamagotchi tama in Tamagotchi.GetAllTama())
+      // {
+      //   if(tama.CheckDeath())
+      //   {
+      //     tamaIds.Add(tama.GetId());
+      //   }
+      // }
+      // int j = 2;
+      // if (tamaIds.Count > 0){
+      //   for (int i = tamaIds[tamaIds.Count - 1]; i > 0; i = i)
+      //   {
+      //     Tamagotchi.RemoveSpecificTama(i);
+      //     j++;
+      //     if (tamaIds.Count > j)
+      //     {
+      //       i = tamaIds[tamaIds.Count - j];
+      //     }
+      //   }
+
+      //}
+
+      return View("index", Tamagotchi.GetAllTama());
     }
 
     [HttpPost("/play/{id}")]
     public ActionResult PlayTama(int id)
     {
-      Tamagotchi.Find(id).Play(25);
+      Tamagotchi.Find(id).Play(20);
+      Tamagotchi.PassTime();
 
-      return View("/", Tamagotchi.GetAllTama());
+      // List<int> tamaIds = new List<int> {};
+      //
+      // foreach (Tamagotchi tama in Tamagotchi.GetAllTama())
+      // {
+      //   if(tama.CheckDeath())
+      //   {
+      //     tamaIds.Add(tama.GetId());
+      //   }
+      // }
+      // int j = 2;
+      // if (tamaIds.Count > 0){
+      //   for (int i = tamaIds[tamaIds.Count - 1]; i > 0; i = i)
+      //   {
+      //     Tamagotchi.RemoveSpecificTama(i);
+      //     j++;
+      //     if (tamaIds.Count > j)
+      //     {
+      //       i = tamaIds[tamaIds.Count - j];
+      //     }
+      //   }
+      //}
+
+      // if (Tamagotchi.Find(id).CheckDeath())
+      // {
+      //   Tamagotchi.RemoveSpecificTama(id);
+      // }
+
+      return View("index", Tamagotchi.GetAllTama());
     }
 
     [HttpPost("/sleep/{id}")]
     public ActionResult SleepTama(int id)
     {
-      Tamagotchi.Find(id).Sleep(25);
+      Tamagotchi.Find(id).Sleep(20);
+      Tamagotchi.PassTime();
 
-      return View("/", Tamagotchi.GetAllTama());
+      // List<int> tamaIds = new List<int> {};
+      //
+      // foreach (Tamagotchi tama in Tamagotchi.GetAllTama())
+      // {
+      //   if(tama.CheckDeath())
+      //   {
+      //     tamaIds.Add(tama.GetId());
+      //   }
+      // }
+      // int j = 2;
+      // if (tamaIds.Count > 0){
+      //   for (int i = tamaIds[tamaIds.Count - 1]; i > 0; i = i)
+      //   {
+      //     Tamagotchi.RemoveSpecificTama(i);
+      //     j++;
+      //     if (tamaIds.Count > j)
+      //     {
+      //       i = tamaIds[tamaIds.Count - j];
+      //     }
+      //   }
+      //}
+
+
+      return View("index", Tamagotchi.GetAllTama());
     }
+
+    // [HttpPost("/time")]
+    // public ActionResult PassTime()
+    // {
+    //   foreach (Tamagotchi tama in Tamagotchi.GetAllTama())
+    //   {
+    //     tama.PassTime();
+    //   }
+    //   foreach (Tamagotchi tama in Tamagotchi.GetAllTama())
+    //   {
+    //     if (tama.CheckDeath())
+    //     {
+    //       Tamagotchi.RemoveSpecificTama(tama.GetId());
+    //     }
+    //   }
+    //
+    //   return View("index", Tamagotchi.GetAllTama());
+    // }
   }
 }
